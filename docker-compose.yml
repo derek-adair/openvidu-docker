@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+    app:
+        build: .
+        expose: 
+         - '5000'
+         - '4443'
+        env_file: .env-app
+        volumes:
+         - $HOME/.m2:/root/.m2
+        command: mvn package exec:java
+    openvidu:
+        image: openvidu/openvidu-server-kms:2.12.0
+        expose: 
+         - '4443'
+        env_file: .env-vidu
+
+
+networks:
+    default:
+        external:
+            name: webproxy
