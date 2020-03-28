@@ -16,7 +16,7 @@ services:
            #env_file: .env-vidu
 
 
-networks:
-    default:
-        external:
-            name: webproxy
+           #networks:
+           #    default:
+           #        external:
+           #            name: webproxy
